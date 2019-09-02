@@ -1,8 +1,7 @@
 import { promises as fs } from 'fs'
 import { join } from 'path'
 import { compileFile, compileTemplate } from 'pug'
-
-const toPascalCase = require('pascal-case')
+import toPascalCase from 'pascal-case'
 
 class Walker {
     files: Map<string, compileTemplate> = new Map()
