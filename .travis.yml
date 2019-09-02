@@ -1,18 +1,28 @@
 language: node_js
 cache:
   directories:
-    - ~/.npm
+  - "~/.npm"
 notifications:
   email: false
 node_js:
-  - '10'
-  - '12'
+- '10'
+- '12'
 script:
-  - npm run test:prod && npm run build
+- npm run test:prod && npm run build
 after_success:
-  - npm run travis-deploy-once "npm run report-coverage"
-  - if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then npm run travis-deploy-once "npm run deploy-docs"; fi
-  - if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then npm run travis-deploy-once "npm run semantic-release"; fi
+- npm run travis-deploy-once "npm run report-coverage"
+- if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then npm
+  run travis-deploy-once "npm run deploy-docs"; fi
+- if [ "$TRAVIS_BRANCH" = "master" -a "$TRAVIS_PULL_REQUEST" = "false" ]; then npm
+  run travis-deploy-once "npm run semantic-release"; fi
 branches:
   except:
-    - /^v\d+\.\d+\.\d+$/
+  - "/^v\\d+\\.\\d+\\.\\d+$/"
+deploy:
+  provider: npm
+  email: baptiste@devessier.fr
+  api_key:
+    secure: nHFggqyobekf0q4TZo45JSnLdXh2aoOflioFXl/SgiZtx0zp86QFtEAK56zRlguUSXmwVtsdcTX0+KZ6XJu0J83/unZNpnfaPK8SXiu6SAtZ1HbPsgyFX1NxssJW81Xp4nkM/76yoEz3hXyx4asCuqsbJfKo1AWmTTGbvHZlBWycgfWIp8dyOeWazr3kvRAdhYU5dlJtFTGvZ6KDATdC7BxMJnZJzkEYIPWdiCY8rbUIWDP/mZ9sBnrdLGyRGONQXKDWtw+4R2L5yVktD6LLCUMrc5CUga1l1j4HCPePHEs02VcNPiAp0sxCZ7Bp4tr5WvHiqvYi0xQdL0T6uRGUtdmXcSBlKeuvjwyi/cK30WzVdIIeCqyJjqIN2y6nJ7ijkN2dOzDFE+mXj6dRVvKwqWh8WlI8u3oYfPkKUyq52/H/x7JZjxqA3EIqrxPXbypi0xSx8lStjLM6vGzhTkhAXqrKqf+mE0+TqbIB4TXN36W76OYRi+cMIvEcf2IuE0EIz8J9evfzdkWVDjfPrDAgDJ5LST5nRnuSqpp9bpUIlhVyaekJ87APpSIdcz37WhnXV2VeWgAH56rDkgZvWYAEW/Nim9Yk+PtKYwKSSrGvnMuLAA9H+6v5Cu7ea4iJG0HLH2B6N390492EOt4wIJ1LPp9c+k/x4fHkvkJmF/bNP/E=
+  on:
+    tags: true
+    repo: ArtisansFiables/template-compiler
