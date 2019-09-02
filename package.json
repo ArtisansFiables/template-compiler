@@ -1,6 +1,6 @@
 {
   "name": "@artisans-fiables/template-compiler",
-  "version": "0.0.0-development",
+  "version": "0.0.0",
   "description": "",
   "keywords": [],
   "main": "dist/template-compiler.umd.js",
