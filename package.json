@@ -1,6 +1,6 @@
 {
-  "name": "template-compiler",
-  "version": "0.0.0",
+  "name": "@artisans-fiables/template-compiler",
+  "version": "0.0.0-development",
   "description": "",
   "keywords": [],
   "main": "dist/template-compiler.umd.js",
@@ -12,7 +12,7 @@
   "author": "Devessier <baptiste@devessier.fr>",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/ArtisansFiables/template-compiler.git"
   },
   "license": "MIT",
   "engines": {
