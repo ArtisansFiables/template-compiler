@@ -16,7 +16,7 @@
   },
   "license": "MIT",
   "engines": {
-    "node": ">=6.0.0"
+    "node": ">=12.0.0"
   },
   "scripts": {
     "lint": "tslint  --project tsconfig.json -t codeFrame 'src/**/*.ts' 'test/**/*.ts'",
@@ -116,5 +116,10 @@
     "tslint-config-standard": "^8.0.1",
     "typedoc": "^0.15.0",
     "typescript": "^3.6.2"
+  },
+  "dependencies": {
+    "@types/pug": "^2.0.4",
+    "pascal-case": "^2.0.1",
+    "pug": "^2.0.4"
   }
 }
