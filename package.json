@@ -3,7 +3,7 @@
   "version": "0.2.2",
   "description": "",
   "keywords": [],
-  "main": "dist/template-compiler.umd.js",
+  "main": "dist/lib/template-compiler",
   "module": "dist/template-compiler.es5.js",
   "typings": "dist/types/template-compiler.d.ts",
   "files": [
