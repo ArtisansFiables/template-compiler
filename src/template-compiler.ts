@@ -3,8 +3,10 @@ import { join } from 'path'
 import { compileFile, compileTemplate } from 'pug'
 import toPascalCase from 'pascal-case'
 
+export type TemplatesMap = Map<string, compileTemplate>
+
 class Walker {
-    files: Map<string, compileTemplate> = new Map()
+    files: TemplatesMap = new Map()
 
     async walk(rootDir: string, rootDirName: string) {
         const entries = await fs.readdir(rootDir, { withFileTypes: true })
@@ -25,10 +27,7 @@ class Walker {
     }
 }
 
-export async function compile(
-    root: string,
-    baseName?: string
-): Promise<Map<string, compileTemplate>> {
+export async function compile(root: string, baseName?: string): Promise<TemplatesMap> {
     const walker = new Walker()
 
     await walker.walk(root, baseName || '')
