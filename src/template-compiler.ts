@@ -17,7 +17,11 @@ class Walker {
 
             if (entry.isDirectory()) {
                 await this.walk(path, filename)
-            } else if (entry.isFile() && !entry.name.startsWith('_')) {
+            } else if (
+                entry.isFile() &&
+                !entry.name.startsWith('_') &&
+                entry.name.endsWith('.pug')
+            ) {
                 const key = toPascalCase(filename.split('.')[0])
                 const template = compileFile(path)
 
