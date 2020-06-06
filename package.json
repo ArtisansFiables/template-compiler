@@ -3,8 +3,8 @@
     "version": "1.0.2",
     "description": "",
     "keywords": [],
-    "main": "dist/index.js",
-    "types": "dist/index.d.ts",
+    "main": "dist/template-compiler.js",
+    "types": "dist/template-compiler.d.ts",
     "author": "Devessier <baptiste@devessier.fr>",
     "repository": {
         "type": "git",
