@@ -1,6 +1,6 @@
 {
     "name": "@artisansfiables/template-compiler",
-    "version": "0.2.5",
+    "version": "1.0.0",
     "description": "",
     "keywords": [],
     "main": "dist/index.js",
