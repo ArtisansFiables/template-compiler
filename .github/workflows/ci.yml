@@ -1,0 +1,41 @@
+name: Test, build and publish Template Compiler library
+
+on:
+    create:
+        tags:
+            - v*
+
+jobs:
+    test:
+        runs-on: ubuntu-latest
+        strategy:
+            matrix:
+                node-version: [10.x, 12.x]
+        steps:
+            - uses: actions/checkout@v1
+            - uses: actions/setup-node@v1
+              with:
+              node-version: ${{ matrix.node-version }}
+            - run: |
+                  npm install -g pnpm
+                  pnpm install
+                  pnpm test
+
+    publish:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+            # Setup .npmrc file to publish to GitHub Packages
+            - uses: actions/setup-node@v1
+              with:
+                  node-version: '12.x'
+                  registry-url: 'https://npm.pkg.github.com'
+                  # Defaults to the user or organization that owns the workflow file
+                  scope: '@artisansfiables'
+            - run: |
+                  npm install -g pnpm
+                  pnpm install
+                  pnpm run build
+                  npm publish
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

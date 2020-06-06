@@ -1,23 +1,15 @@
 {
-  "compilerOptions": {
-    "moduleResolution": "node",
-    "target": "es5",
-    "module":"es2015",
-    "downlevelIteration": true,
-    "lib": ["es2015", "es2016", "es2017", "dom"],
-    "strict": true,
-    "sourceMap": true,
-    "declaration": true,
-    "esModuleInterop": true,
-    "experimentalDecorators": true,
-    "emitDecoratorMetadata": true,
-    "declarationDir": "dist/types",
-    "outDir": "dist/lib",
-    "typeRoots": [
-      "node_modules/@types"
-    ]
-  },
-  "include": [
-    "src"
-  ]
+    "compilerOptions": {
+        "target": "ES5",
+        "lib": ["ESNext"],
+        "module": "CommonJS",
+        "moduleResolution": "Node",
+        "downlevelIteration": true,
+        "declaration": true,
+        "outDir": "dist",
+        "strict": true,
+        "removeComments": true,
+        "allowSyntheticDefaultImports": true
+    },
+    "include": ["src/**/*"]
 }
